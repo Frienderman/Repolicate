@@ -1,5 +1,5 @@
-from flask import Flask, escape, request, redirect
-import requests, jsonify
+from flask import Flask, escape, request, redirect, jsonify, json
+import requests
 
 app = Flask(__name__)
 
@@ -23,13 +23,24 @@ def client_auth_request():
 
 @app.route('/action')
 def auth_response():
+    
+    #Take the OAuth response to /OAuthRequest's redirect (expecting enduser has approved app) and retrieve the code and state.
+
     get_request_info = request.args
     client_code = get_request_info['code']
     returned_secret = get_request_info['state']
-    
-    requests.get(‘’)
 
-    return {"ok": True}
+    #With this data we perform a POST to https://github.com/login/oauth/access_token to obtain the OAuth access token.
+    jsonheaders = {'Accept': 'application/json'}
+    r = requests.post("https://github.com/login/oauth/access_token", data = {"client_id":"3d797b42387a734066a6", "client_secret":"602350fc855d4349dc3fd3b17453d45e844163ba", "code":client_code}, headers=jsonheaders)
+    json_result = json.loads(r.text)
+    #access_token = json_result['access_token']
+    #access_scope = json_result['scope']
+    #access_token_type = json_result['token_type']
+
+    #Now, using the access_token we can perform functions with the Github API to clone the repository.
+
+    return json_result
 
 if __name__ == "__main__":
     app.run()
