@@ -40,6 +40,7 @@ def auth_response():
     json_headers = {'Accept': 'application/json'}
     r = requests.post("https://github.com/login/oauth/access_token", data = {"client_id":client_id, "client_secret":client_secret, "code":client_code}, headers=json_headers)
     json_result = json.loads(r.text)
+    #Check if 'error' key exists in json_result, if it does then something has gone wrong so go to error page.
     confirm_error = 'error' in json_result
     if confirm_error == True:
         return redirect('/error')
@@ -53,7 +54,8 @@ def auth_response():
     fork_headers = {'Authorization': fork_formatted_token, 'Accept': 'application/json'}
     f = requests.post(fork_repo_url, headers=fork_headers)
     fork_result = json.loads(f.text)
-    if fork_result != 202:
+    #Check if status code 202 is reported, if not, something has gone wrong so go to error page.
+    if f.status_code != 202:
         return redirect('/error')
     url = fork_result['html_url']
     return redirect(url,303)

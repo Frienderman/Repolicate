@@ -1,14 +1,26 @@
 <html>
     <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Repolicate</h1>
-        <h6>(The Repository Replication Test)</h6>
-        <br/>
-        <br/>
-        <h1>:'(</h1>
-        <p>Horrific failure!
-        <br/>
-        Something has gone terribly wrong, we're awfully sorry, click <a href='/'>here</a> to go back to the start.</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <h1>Repolicate</h1>
+            </div>
+            <div class="row justify-content-center">
+                <p class="text-muted">(The Repository Replication Test)</p>
+            </div>
+            <div class="row justify-content-center">
+                    <h1>Oh No!</h1>
+            </div>
+            <div class="row justify-content-center">
+                    <p>Something terrible has happened, please click 'restart' below to go back.</p>
+            </div>
+            <div class="row justify-content-center">
+                    <form action="/">
+                            <button type="submit" class="btn btn-primary">Restart</button>
+                    </form>
+            </div>
     </body>
 </html>
