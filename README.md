@@ -55,12 +55,15 @@ Login to Github's [Developer Settings](https://github.com/settings/developers) a
 Click the **New OAuth App** button to generate a new app and fill in the required fields.
 Note that `Authorization callback URL` will need to be the full url plus `/action` (for example: `https://repolicate.herokuapp.com/action` or `http://localhost:8000/action`) for the system to work.
 
-#### 4. Generate app.settings
+#### 4. Generate Environment Variables
 
 Without changing directory, generate the app.settings file by running:
 
 ```bash
-echo '{ "id":"<client_id>", "secret":"<client_secret>", "target_owner":"Frienderman", "target_repo":"Repolicate" }' > app.settings
+export CLIENT_ID=<client_id>
+export CLIENT_SECRET=<client_secret>
+export GITHUB_OWNER=Frienderman
+export GITHUB_REPO=Repolicate
 ```
 Where `client_id` and `client_secret` are the corresponding id and secret you have generated in OAuth Apps under Github's [Developer Settings](https://github.com/settings/developers).
 `Frienderman` and `Repolicate` can be replaced with a different owner and repository name if a different repository is to be cloned.
@@ -131,6 +134,19 @@ You will get a response similar to this:
 Creating ⬢ <project_name>... done
 https://<project_name>.herokuapp.com/ | https://git.heroku.com/<project_name>.git
 ```
+
+##### Set Environment Variables
+
+Now we need to set the 4 environment variables:
+```bash
+heroku config:set CLIENT_ID=<client_id>
+heroku config:set CLIENT_SECRET=<client_secret>
+heroku config:set GITHUB_OWNER=Frienderman
+heroku config:set GITHUB_REPO=Repolicate
+```
+
+Where `client_id` and `client_secret` are the corresponding id and secret you have generated in OAuth Apps under Github's [Developer Settings](https://github.com/settings/developers).
+`Frienderman` and `Repolicate` can be replaced with a different owner and repository name if a different repository is to be cloned.
 
 ##### Push App to Heroku
 
