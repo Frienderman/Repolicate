@@ -118,4 +118,11 @@ Creating ⬢ <project_name>... done
 https://<project_name>.herokuapp.com/ | https://git.heroku.com/<project_name>.git
 ```
 
+Now you should be able to run:
+
+```bash
+git push heroku master
+```
+
+
 
