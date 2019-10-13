@@ -4,24 +4,10 @@ Repolicate automatically forks a configured repository to the local user's githu
 
 Python and the web framework Flask are used to achieve this, flask is used to handle the requests used throughout.
 
-## app.settings
+## Environment Variables
 
-The app.settings file is a JSON file that holds the sensitive data such as the `client_id` and `client_secret` along with the target repository information (`target_owner` and `target_repo`), these are variables that can and should be changed as required, both client_id and client_secret will need to be updated if the application is expected to run using OAuth with another user/organization.
-The settings.app file is not included in the repository for security reasons but can be generated with the following structure:
-
-```javascript
-{
-    "id":"<client_id>",
-    "secret":"<client_secret>",
-    "target_owner":"<target_repository_owner>",
-    "target_repo":"<target_repository_name>"
-}
-```
-
-Where `<client_id>` and `<client_secret>` are the corresponding *Client ID* and *Client Secret* provided by Github when an OAuth app is registered (this can be found under Github's [Developer Settings](https://github.com/settings/developers) under your account.
-And the `<target_repository_owner>` and `<target_repository_name>` are the owner and repository which you with to copy, in the case of the app as is is configured in the demo that is *Frienderman* and *Repolicate* respectively.
-
-app.settings should be saved to the same directory that *app.py* resides in.
+Repolicate requires 4 environment variables `CLIENT_ID`, `CLIENT_SECRET`, `GITHUB_OWNER` and `GITHUB_REPO` these are variables that can and should be changed as required, both client_id and client_secret will need to be updated if the application is expected to run using OAuth with another user/organization.
+`CLIENT_ID` and `CLIENT_SECRET` are the corresponding *Client ID* and *Client Secret* provided by Github when an OAuth app is registered (this can be found under Github's [Developer Settings](https://github.com/settings/developers) under your account. The `GITHUB_OWNER` and `GITHUB_REPO` are the target owner and repository which you with to copy, in the case of the app as is is configured in the demo that is *Frienderman* and *Repolicate* respectively.
 
 ## Endpoints
 
