@@ -9,7 +9,7 @@ def show_index():
     with open("index.html") as file:
         return file.read()
 
-#OAuthRequest page is activated when 'login' is clicked and makes the first request of the OAuth system.
+#OAuthRequest page is activated when 'login' is clicked and makes the redirect to the OAuth system.
 @app.route('/OAuthRequest')
 def client_auth_request():
 
