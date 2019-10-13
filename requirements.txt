@@ -3,6 +3,7 @@ certifi==2019.9.11
 chardet==3.0.4
 Click==7.0
 Flask==1.1.1
+gunicorn==19.9.0
 idna==2.8
 isort==4.3.21
 itsdangerous==1.1.0
@@ -11,7 +12,6 @@ jsonify==0.5
 lazy-object-proxy==1.4.2
 MarkupSafe==1.1.1
 mccabe==0.6.1
-pkg-resources==0.0.0
 pylint==2.4.2
 requests==2.22.0
 six==1.12.0
