@@ -26,13 +26,14 @@ Assuming you have github configured open a terminal and run:
 
 ```bash
 git clone https://github.com/Frienderman/Repolicate.git
+cd Repolicate
 ```
 
-Alternatively you can [download](https://github.com/Frienderman/Repolicate/archive/master.zip) the Repolicate master branch .zip and unpack it in a location of your choosing then browsing to the folder unpack (where app.py is located) and opening a terminal in that location.
+Alternatively you can [download](https://github.com/Frienderman/Repolicate/archive/master.zip) the Repolicate master branch .zip and unpack it in a location of your choosing then browsing to the folder unpacked (where app.py is located) and open a terminal in that location.
 
 #### 2. Setup Virtual Environment
 
-Setup your virtual environment by running:
+Setup your virtual environment by (without changing directory) running:
 
 ```bash
 virtualenv -p python3 venv
@@ -52,7 +53,7 @@ pip install -r requirements.txt
 Without changing directory, generate the app.settings file by running:
 
 ```bash
-echo '{ "client_id":"<client_id>", "client_secret":"<client_secret>", "target_owner":"Frienderman", "target_repo":"Repolicate" }' > app.settings
+echo '{ "id":"<client_id>", "secret":"<client_secret>", "target_owner":"Frienderman", "target_repo":"Repolicate" }' > app.settings
 ```
 Where `client_id` and `client_secret` are the corresponding id and secret you have generated in OAuth Apps under Github's [Developer Settings](https://github.com/settings/developers).
 `Frienderman` and `Repolicate` can be replaced with a different owner and repository name if a different repository is to be cloned.
@@ -64,6 +65,8 @@ You should now be able to start the app by running:
 ```bash
 python app.py
 ```
+
+Open a web browser and browse to [localhost:5000/](localhost:5000/) to use the app.
 
 ## Heroku Installation
 
