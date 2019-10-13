@@ -2,6 +2,8 @@
 
 ## Demo
 
+A demonstration of Repolicate is available on a Heroku app deployment at: [Repolicate](https://repolicate.herokuapp.com/)
+
 ## Technical Specification
 
 See Specification.md
@@ -47,6 +49,11 @@ Install the packages required for the app (as listed in requirements.txt) by run
 ```bash
 pip install -r requirements.txt
 ```
+#### 5. OAuth settings
+
+Login to Github's [Developer Settings](https://github.com/settings/developers) and select **OAuth Apps** from the side menu.
+Click the **New OAuth App** button to generate a new app and fill in the required fields.
+Note that `Authorization callback URL` will need to be the full url plus `/action` (for example: `https://repolicate.herokuapp.com/action` or `http://localhost:8000/action`) for the system to work.
 
 #### 4. Generate app.settings
 
@@ -70,12 +77,16 @@ Open a web browser and browse to [localhost:5000/](localhost:5000/) to use the a
 
 ## Heroku Installation
 
-Install Snap & Heroku CLI
+##### Install Snap & Heroku CLI
+
+Run:
 
 ```bash
 sudo apt install snapd
 sudo snap install heroku --classic
 ```
+
+##### Heroku Login
 
 Now open Heroku's login command:
 
@@ -96,12 +107,15 @@ Logging in... done
 Logged in as username@example.com
 ```
 
-These instructions will assume you have github configured, open a terminal and run:
+##### Clone Repository
+
+These instructions will assume you have github configured, open a terminal and clone the Repolicate repository by running:
 
 ```bash
 git clone https://github.com/Frienderman/Repolicate.git
 cd Repolicate
 ```
+##### Create Heroku Project
 
 Create a project with heroku by running:
 
@@ -118,11 +132,20 @@ Creating ⬢ <project_name>... done
 https://<project_name>.herokuapp.com/ | https://git.heroku.com/<project_name>.git
 ```
 
+##### Push App to Heroku
+
 Now you should be able to run:
 
 ```bash
 git push heroku master
 ```
 
+Heroku will now proceed to perform git push and will perform a build before providing you with a message similar to:
 
+```bash
+remote:        https://repolicate.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy... done.
+```
 
+The link provided should now available for use.
