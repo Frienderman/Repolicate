@@ -70,3 +70,52 @@ Open a web browser and browse to [localhost:5000/](localhost:5000/) to use the a
 
 ## Heroku Installation
 
+Install Snap & Heroku CLI
+
+```bash
+sudo apt install snapd
+sudo snap install heroku --classic
+```
+
+Now open Heroku's login command:
+
+```bash
+heroku login
+```
+
+If you get an error regarding the PATH environment variable you can temporarily bypass the problem by running:
+
+```bash
+export PATH=$PATH:/snap/bin
+```
+
+Now follow the prompts to open a browser and login, once logged in the CLI should report:
+
+```bash
+Logging in... done
+Logged in as username@example.com
+```
+
+These instructions will assume you have github configured, open a terminal and run:
+
+```bash
+git clone https://github.com/Frienderman/Repolicate.git
+cd Repolicate
+```
+
+Create a project with heroku by running:
+
+```bash
+heroku create <project_name>
+```
+
+Where `<project_name>` is a name consisting of only lowercase letters and numbers.
+
+You will get a response similar to this:
+
+```bash
+Creating ⬢ <project_name>... done
+https://<project_name>.herokuapp.com/ | https://git.heroku.com/<project_name>.git
+```
+
+
